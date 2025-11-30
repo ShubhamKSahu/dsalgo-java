@@ -1,19 +1,27 @@
 import java.util.*;
+
 public class reverseArray {
-    static void reverseArr(int [] arr){
-        int startPoint = 0;
-        int endPoint = arr.length-1;
-       while(startPoint < endPoint){
-            int temp = arr[startPoint];
-            arr[startPoint] = arr[endPoint];
-            arr[endPoint] = temp;
-            startPoint++;
-            endPoint--;
+    public static int[] reverse(int arr[]) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            int temp = arr[end];
+            arr[end] = arr[start];
+            arr[start] = temp;
+            start++;
+            end--;
         }
+        return arr;
     }
-        public static void main(String args[]){
-            int[] arr = {2, 4, 5, 7, 9, 10};
-            reverseArr(arr);
-            System.out.println("Reverse array is : " + Arrays.toString(arr));
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        int arr[] = new int[7];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
         }
+        int revArr[] = reverse(arr);
+        System.out.println("Reversed array is: " + Arrays.toString(revArr));
+    }
 }
